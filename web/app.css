@@ -61,11 +61,11 @@ body.x-border-layout-ct, div.x-border-layout-ct {
 
 body,html{
     border:0;
-    background:url(/images/background.png) no-repeat center center fixed;
-    height:0;
+    background:url(/images/fondo_plataforma_1920x12001.jpg) no-repeat center center fixed;
+    height: 0;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: 100% 100%;
     /*padding-bottom:56.25%;*/
 }
