@@ -33,7 +33,9 @@
 
     locale.languages = {
         'ar': { name: 'العربية', code: 'en' },
+        'az': { name: 'Azərbaycanca', code: 'en' },
         'bg': { name: 'Български', code: 'bg' },
+        'bn': { name: 'বাংলা', code: 'en' },
         'cs': { name: 'Čeština', code: 'cs' },
         'de': { name: 'Deutsch', code: 'de' },
         'da': { name: 'Dansk', code: 'da' },
@@ -56,6 +58,7 @@
         'km': { name: 'ភាសាខ្មែរ', code: 'en' },
         'lo': { name: 'ລາວ', code: 'en' },
         'lt': { name: 'Lietuvių', code: 'lt' },
+        'lv': { name: 'Latviešu', code: 'lv' },
         'ml': { name: 'മലയാളം', code: 'en' },
         'ms': { name: 'بهاس ملايو', code: 'en' },
         'nb': { name: 'Norsk bokmål', code: 'no_NB' },
@@ -134,9 +137,15 @@
 
     });
 
+    // Hack for new versions of Android
+    if (navigator.userAgent.indexOf('Android') !== -1 && navigator.userAgent.indexOf('OPR') !== -1) {
+        var __originalUserAgent = navigator.userAgent;
+        navigator.__defineGetter__('userAgent', function () { return __originalUserAgent.replace(/\/OPR[^)]*/g, ''); });
+    }
+
     extjsVersion = '6.2.0';
     fontAwesomeVersion = '4.7.0';
-    olVersion = '4.3.1';
+    olVersion = '4.3.2';
     proj4jsVersion = '2.4.3';
 
     if (debugMode) {

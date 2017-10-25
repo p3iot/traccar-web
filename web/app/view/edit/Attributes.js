@@ -16,16 +16,13 @@
  */
 
 Ext.define('Traccar.view.edit.Attributes', {
-    extend: 'Ext.grid.Panel',
+    extend: 'Traccar.view.GridPanel',
     xtype: 'attributesView',
 
     requires: [
-        'Ext.grid.filters.Filters',
         'Traccar.view.edit.AttributesController',
         'Traccar.view.edit.Toolbar'
     ],
-
-    plugins: 'gridfilters',
 
     controller: 'attributes',
 
@@ -62,9 +59,9 @@ Ext.define('Traccar.view.edit.Attributes', {
                     attribute = Ext.getStore(this.attributesStore).getById(record.get('name'));
                 }
                 if (attribute && attribute.get('dataType') === 'speed') {
-                    return Ext.getStore('SpeedUnits').formatValue(value, Traccar.app.getPreference('speedUnit', 'kn'), true);
+                    return Ext.getStore('SpeedUnits').formatValue(value, Traccar.app.getAttributePreference('speedUnit', 'kn'), true);
                 } else if (attribute && attribute.get('dataType') === 'distance') {
-                    return Ext.getStore('DistanceUnits').formatValue(value, Traccar.app.getPreference('distanceUnit', 'km'), true);
+                    return Ext.getStore('DistanceUnits').formatValue(value, Traccar.app.getAttributePreference('distanceUnit', 'km'), true);
                 } else {
                     return value;
                 }

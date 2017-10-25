@@ -16,29 +16,35 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.UserDrivers', {
+Ext.define('Traccar.view.permissions.SavedCommands', {
     extend: 'Traccar.view.permissions.Base',
-    xtype: 'userDriversView',
-
-    requires: [
-        'Ext.grid.filters.Filters'
-    ],
-
-    plugins: 'gridfilters',
+    xtype: 'linkSavedCommandsView',
 
     columns: {
         items: [{
-            text: Strings.sharedName,
-            dataIndex: 'name',
+            text: Strings.sharedDescription,
+            dataIndex: 'description',
             flex: 1,
             minWidth: Traccar.Style.columnWidthNormal,
             filter: 'string'
         }, {
-            text: Strings.deviceIdentifier,
-            dataIndex: 'uniqueId',
+            text: Strings.sharedType,
+            dataIndex: 'type',
             flex: 1,
             minWidth: Traccar.Style.columnWidthNormal,
-            filter: 'string'
+            filter: {
+                type: 'list',
+                idField: 'type',
+                labelField: 'name',
+                store: 'AllCommandTypes'
+            },
+            renderer: Traccar.AttributeFormatter.getFormatter('commandType')
+        }, {
+            text: Strings.notificationSms,
+            dataIndex: 'textChannel',
+            flex: 1,
+            minWidth: Traccar.Style.columnWidthNormal,
+            filter: 'boolean'
         }]
     }
 });
