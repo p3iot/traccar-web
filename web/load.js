@@ -42,6 +42,7 @@
         'el': { name: 'Ελληνικά', code: 'el' },
         'en': { name: 'English', code: 'en' },
         'es': { name: 'Español', code: 'es' },
+        'es_mx': { name: 'Español México', code: 'es_mx' },
         'fa': { name: 'فارسی', code: 'fa' },
         'fi': { name: 'Suomi', code: 'fi' },
         'fr': { name: 'Français', code: 'fr' },
